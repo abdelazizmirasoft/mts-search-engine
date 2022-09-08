@@ -6,7 +6,7 @@ const baseUrl = 'https://google-search3.p.rapidapi.com/api/v1';
 export const ResultContextProvider = ({ children}) => {
     const [results, setResults] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
-    const [searchTerm, setSearchTerm] = useState('Caddy Volkswagen');
+    const [searchTerm, setSearchTerm] = useState('');
 
     // /videos, /search, /images
     const getResults = async (type) => {
@@ -17,7 +17,7 @@ export const ResultContextProvider = ({ children}) => {
             headers:{
                 'X-User-Agent': 'desktop',
                 'X-Proxy-Location': 'EU',
-                'X-RapidAPI-Key': 'b7ab6cb449msh74f01e373908ab8p177501jsne5d7db897720',
+                'X-RapidAPI-Key': process.env.REACT_APP_API_KEY,
                 'X-RapidAPI-Host': 'google-search3.p.rapidapi.com'
             }
         });

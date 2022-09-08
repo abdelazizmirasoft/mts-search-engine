@@ -18,7 +18,7 @@ export const Results = () => {
     },[searchTerm, location.pathname]);
 
     if(isLoading) return <Loading />;
-    
+
     switch (location.pathname) {
         case '/search':
             return (
@@ -74,7 +74,7 @@ export const Results = () => {
                 <div className='flex flex-wrap'>
                     {results.map((video, index) => (
                         <div key={index} className="p-2">
-                            <ReactPlayer url={video.link}  controls={true} width="355px" height="200px" origin="http://localhost:3000" />
+                            {video?.link && <ReactPlayer url={video.link}  controls={true} width="355px" height="200px" origin="http://localhost:3000" />}
                         </div>
                     ))}
                 </div>
